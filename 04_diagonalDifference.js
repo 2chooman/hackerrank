@@ -32,10 +32,9 @@ function readLine() {
 function diagonalDifference(arr) {
     var firstSum = 0;
     var secondSum = 0;
-    var arrLength = arr.length;
-    for (var i = 0; i < arrLength; i++) {
+    for (var i = 0; i < arr.length; i++) {
         firstSum += Number(arr[i][i]);
-        secondSum += Number(arr[i][arrLength - 1 - i]);
+        secondSum += Number(arr[i][arr.length - 1 - i]);
     }
     return Math.abs(firstSum - secondSum);
 }
