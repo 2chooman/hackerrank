@@ -30,8 +30,17 @@ function readLine() {
  */
 
 function timeConversion(s) {
-    // Write your code here
-
+    var timeDigits = s.slice(0, 8);
+    var timeParts = s.slice(8);
+    var timeArray = timeDigits.split(":");
+    if (timeParts === "PM" && timeArray[0] !== "12") {
+        timeArray[0] = Number(timeArray[0]) + 12;
+    }
+    if (timeParts === "AM" && timeArray[0] === "12") {
+        timeArray[0] = String((Number(timeArray[0]) - 12)).padEnd(2, 0);
+    }
+    timeDigits = timeArray.join(":");
+    return timeDigits;
 }
 
 function main() {
