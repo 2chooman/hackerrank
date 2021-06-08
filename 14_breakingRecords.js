@@ -30,8 +30,24 @@ function readLine() {
  */
 
 function breakingRecords(scores) {
-    // Write your code here
-
+    var minScores = [scores[0]];
+    var maxScores = [scores[0]];
+    for (var score of scores) {
+        minScores.sort(function(a, b) {
+            return b - a;
+        });
+        if (score < minScores[minScores.length - 1]) minScores.push(score);
+    }
+    for (var score of scores) {
+        maxScores.sort(function(a, b) {
+            return a - b;
+        });
+        if (score > maxScores[maxScores.length - 1]) maxScores.push(score);
+    }
+    return [
+        maxScores.slice(1, maxScores.length).length, 
+        minScores.slice(1, minScores.length).length
+    ];
 }
 
 function main() {
